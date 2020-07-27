@@ -34,7 +34,6 @@ fn handle_connection(mut stream: TcpStream) {
         if buffer_stringified.contains("/sleep") {
             println!("Waiting 5 seconds.");
             thread::sleep(Duration::from_secs(5));
-            println!("Request response served.");
             ("HTTP/1.1 200 OK", "hello.html")
         } else {
             ("HTTP/1.1 200 OK", "hello.html")
@@ -42,6 +41,7 @@ fn handle_connection(mut stream: TcpStream) {
     } else {
         ("HTTP/1.1 404 NOT FOUND", "404.html")
     };
+    println!("Request response served.");
 
     let clrf = "\r\n";
     let html_content = fs::read_to_string(filename).unwrap();
