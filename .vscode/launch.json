@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'multithread_server'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=multithread_server",
+                    "--package=multithread_server"
+                ],
+                "filter": {
+                    "name": "multithread_server",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "sourceLanguages": ["Rust"],
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'multithread_server'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=multithread_server",
+                    "--package=multithread_server"
+                ],
+                "filter": {
+                    "name": "multithread_server",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "sourceLanguages": ["Rust"],
+        }
+    ]
+}
